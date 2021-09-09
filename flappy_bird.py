@@ -1,7 +1,8 @@
 import os
 import random
-
+import neat
 import pygame
+import time
 
 WIN_WIDTH = 575
 WIN_HEIGHT = 800
