@@ -192,7 +192,7 @@ def main():
             if pipe.x + pipe.PIPE_TOP.get_width() < 0:
                 rem.append(pipe)
             if not pipe.passed and pipe.x < bird.x:
-
+                pass
             pipe.move()
 
         draw_window(win, bird, pipes, base)
