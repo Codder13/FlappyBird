@@ -188,9 +188,9 @@ def main():
         clock.tick(30)
 
         for event in pygame.event.get():
-            # if event.type == pygame.KEYDOWN:
-            #     if event.key == pygame.K_SPACE:
-            #         bird.jump()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    bird.jump()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
@@ -204,7 +204,7 @@ def main():
         rem = []
         for pipe in pipes:
             if pipe.collide(bird):
-                pass
+                main()
             if pipe.x + pipe.PIPE_TOP.get_width() < 0:
                 rem.append(pipe)
             if not pipe.passed and pipe.x < bird.x:

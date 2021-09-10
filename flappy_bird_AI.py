@@ -158,12 +158,6 @@ class Base:
         if self.x2 + self.WIDTH < 0:
             self.x2 = self.x1 + self.WIDTH
 
-    def collide(self, bird):
-        bird_mask = bird.get_mask()
-        IMG_MASK = pygame.mask.from_surface(self.IMG)
-
-        offset = (self.x - bird.x, self.height - round(bird.y))
-
     def draw(self, win):
         win.blit(self.IMG, (self.x1, self.y))
         win.blit(self.IMG, (self.x2, self.y))
@@ -231,7 +225,8 @@ def main(genomes, config):
             ge[x].fitness += 0.1
             bird.move()
 
-            output = nets[birds.index(bird)].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom)))
+            output = nets[birds.index(bird)].activate((bird.y, abs(bird.y - pipes[pipe_ind].height),
+                                                       abs(bird.y - pipes[pipe_ind].bottom)))
 
             if output[0] > 0.5:
                 bird.jump()
